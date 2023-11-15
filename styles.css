@@ -1,0 +1,37 @@
+#myCanvas {
+    width: calc(100vw - 30px);
+    height: calc(100vh - 30px);
+    background-color: black;
+    border: 5px solid #FFFFFF;
+}
+
+#musicControl {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+}
+
+#start {
+    position: fixed;
+    top: 70vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#timer {
+    position: fixed;
+    color: yellow;
+    top: 50px;
+    right: 30px;
+    text-align: right;
+}
+
+#highScore {
+    position: fixed;
+    color: yellow;
+    top: 5px;
+    right: 30px;
+    text-align: right;
+}

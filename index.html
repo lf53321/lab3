@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script src="script.js"></script>
+</head>
+
+<!--Ucitavanje pozadine kad se stranica ucita-->
+<body onload="loadBackground()">
+
+<!--Pokazivaci trenutnong i najboljeg vremena-->
+<h1 id="highScore">High score: 00:00:000</h1>
+<h1 id="timer">Current time: 00:00:000</h1>
+
+<!--Ukljuci/iskljuci pozadinsku glazbu-->
+<div id="musicControl" onclick="toggleSound()">
+    <img src="/images/mute.png" alt="Play Music" id="musicIcon">
+</div>
+
+<!--Tipka za pokretanje igre-->
+<div id="start" onclick="startGame()">
+    <img src="/images/play.png" alt="Start">
+</div>
+
+<!--Potrebni glazbeni dokumenti-->
+<audio id="backgroundMusic" loop>
+    <source src="/music/backgroundMusic.mp3" type="audio/mp3">
+</audio>
+<audio id="crashMusic">
+    <source src="/music/crash.mp3" type="audio/mp3">
+</audio>
+</body>
+</html>
