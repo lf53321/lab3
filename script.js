@@ -22,10 +22,11 @@ let diff;
 
 //Vrijednosti koje upravljaju kako brzo se generiraju asteroidi, koje velicine i brzine i u kojem broju
 const asteroidInterval = 7500; // 7.5 sekundi
-const asteroidMaxSize = 100;
-const asteroidMinSize = 75;
+const asteroidMaxSize = 85;
+const asteroidMinSize = 50;
 const asteroidMaxSpeed = 6;
 const asteroidMinSpeed = 1;
+const maxNmbOfAsteroids = 25;
 let nmbOfAsteroids = 7;
 
 let asteroidSpawn;
@@ -139,7 +140,9 @@ function createAsteroids () {
     for (let i = 0; i < nmbOfAsteroids; i++) {
         asteroids.push(new Asteroid())
     }
-    nmbOfAsteroids++;
+    if(nmbOfAsteroids < maxNmbOfAsteroids) {
+        nmbOfAsteroids++;
+    }
 }
 
 /**
@@ -209,7 +212,7 @@ function Background() {
 function Asteroid() {
     //Generira nasumicnu velicinu asteroida unutar zadanih granica
     this.width = Math.floor(Math.random() * (asteroidMaxSize - asteroidMinSize + 1) + asteroidMinSize);
-    this.height = Math.floor(Math.random() * (asteroidMaxSize - asteroidMaxSize + 1) + asteroidMinSize);
+    this.height = Math.floor(Math.random() * (asteroidMaxSize - asteroidMinSize + 1) + asteroidMinSize);
     //Nasumicno generira poziciju asteroid malo izvan ekrana i konfigurira njegovu brzinu
     if(Math.random() < 0.5) {
         if(Math.random() < 0.5) {
@@ -380,7 +383,7 @@ function startGame() {
     myGameArea.start();
     document.getElementById("start").hidden = true;
     myBackground = new Background();
-    myGamePiece = new Player(75, 92,  myGameArea.canvas.width / 2, myGameArea.canvas.height / 2);
+    myGamePiece = new Player(60, 75,  myGameArea.canvas.width / 2, myGameArea.canvas.height / 2);
     createAsteroids();
     myGameArea.clear();
     asteroidSpawn = setInterval(createAsteroids, asteroidInterval)
